@@ -12,6 +12,15 @@ class BoatsController < ApplicationController
     @boat.save
   end
 
+  def edit
+    @boat = Boat.find(params[:id])
+  end
+
+  def update
+    @boat = Boat.find(params[:id])
+    @boat.update(boat_params)
+  end
+
 
   private
 
