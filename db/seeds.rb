@@ -7,3 +7,20 @@
 #   ["Action", "Comedy", "Drama", "Horror"].each do |genre_name|
 #     MovieGenre.find_or_create_by!(name: genre_name)
 #   end
+
+User.create! ([{
+  id: "2",
+  email: "jonas@gmail.com",
+  password: "123456",
+  first_name: "Jonas",
+  last_name: "Appleton"
+}])
+
+Boat.create! ([{
+  location: "Bermuda",
+  price: 100,
+  description: "This beautiful boat is a true Joy to take on the worlds marines",
+  title: "MarineJoy",
+  id: "1",
+  user_id: "2",
+}])
