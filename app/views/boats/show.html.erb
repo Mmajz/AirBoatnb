@@ -1,0 +1,6 @@
+
+<%= cl_image_tag @boat.photo.key, height: 200, width: 400, crop: :fill, class: 'img-border' %>
+<h1><%= @boat.title %></h1>
+
+<%= link_to 'Back to Boats', boats_path %>
+<%= link_to 'Make a booking', new_boat_booking_path(@boat) %>
