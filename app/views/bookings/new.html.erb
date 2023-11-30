@@ -3,10 +3,12 @@
 <h1>Hello! You are on the Booking create page! </h1>
 
 <%= simple_form_for ([@boat, @booking]) do |f| %>
-  <%= f.input :opening_date,
+  <%= f.input :start_date,
             as: :string,
             input_html: { data: { controller: "datepicker" } } %>
-  <%= f.input :end_date %>
+  <%= f.input :end_date,
+           as: :string,
+            input_html: { data: { controller: "datepicker" } } %>
   <%= f.button :submit %>
 <% end %>
 

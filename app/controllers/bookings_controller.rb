@@ -8,9 +8,14 @@ class BookingsController < ApplicationController
     @boat = Boat.find(params[:boat_id])
     @booking = Booking.new(booking_params)
     @booking.boat = @boat
-    @booking.user = @user.find(boat.user_id)
 
-    @booking.save
+    @booking.user = current_user
+
+    if @booking.save
+      redirect_to dashboard_path
+    else
+      render :new, status: :unprocessable_entity
+    end
   end
 
   def index
