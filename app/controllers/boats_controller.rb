@@ -2,6 +2,7 @@ class BoatsController < ApplicationController
 
   def index
     @boats = Boat.all
+    @boat = Boat.new
     @markers = @boats.geocoded.map do |boat|
       {
         lat: boat.latitude,
