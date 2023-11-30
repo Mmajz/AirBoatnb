@@ -1,2 +1,4 @@
-<h2><%= boat.title %></h2>
-<p><%= boat.location %></p>
+<%= link_to boat_path(boat), style: "text-decoration:none" do %>
+  <h2><%= boat.title %></h2>
+  <p><%= boat.location %></p>
+<% end %>

@@ -9,19 +9,25 @@
 #   end
 Boat.destroy_all
 User.destroy_all
+users = []
+10.times do |n|
+  users << User.create!(
+    email: Faker::Internet.email,
+    password: 123456789,
+    first_name: Faker::Name.first_name,
+    last_name: Faker::Name.last_name
+  )
+end
 
-
-User.create! ([{
-  email: "jonas3@gmail.com",
-  password: "123456",
-  first_name: "Jonas",
-  last_name: "Appleton"
-}])
-
-Boat.create! ([{
-  location: "Bermuda",
-  price: 100,
-  description: "This beautiful boat is a true Joy to take on the worlds marines",
-  title: "MarineJoy",
-  user: User.last,
-}])
+# Create 20 boats associated with 10 random users
+20.times do
+  Boat.create!(
+    location: Faker::Address.city,
+    price: Faker::Number.between(from: 100, to: 1000),
+    description: Faker::Lorem.paragraph,
+    title: Faker::Lorem.words(number: 3).join(" "),
+    user: users.sample,
+    latitude: Faker::Address.latitude,
+    longitude: Faker::Address.longitude
+  )
+end
