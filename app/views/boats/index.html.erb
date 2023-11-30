@@ -6,6 +6,18 @@
   data-map-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>">
 </div>
 
+<div  class="mt-5">
+  <div data-toggle-target="togglableElement", class="d-none">
+    <%= simple_form_for (@boat) do |f| %>
+      <%= f.input :title %>
+      <%= f.input :location %>
+      <%= f.input :price %>
+      <%= f.input :photo, as: :file %>
+      <%= f.submit class: 'btn-submit-movie mt-3'%>
+    <% end %>
+  </div>
+</div>
+
     <div class="row row-cols-1 row-cols-md-2 g-4">
       <% @boats.each do |boat| %>
         <div class="col">
@@ -22,3 +34,4 @@
         </div>
       <% end %>
     </div>
+

@@ -20,6 +20,15 @@
 <p><%= link_to "Update your account", "/users/edit" %></p>
 
 
+<div  class="mt-5">
+  <div data-toggle-target="togglableElement", class="d-none">
+    <%= simple_form_for (@boat) do |f| %>
+      <%= f.input :title %>
+      <%= f.input :location %>
+      <%= f.input :price %>
+      <%= f.input :photo, as: :file %>
+      <%= f.submit class: 'btn-submit-movie mt-3'%>
+
 
 
 <p> Your next booked boat trip will leave on the: <%= @next_booking.start_date %> </p>
