@@ -8,6 +8,8 @@ class BookingsController < ApplicationController
     @boat = Boat.find(params[:boat_id])
     @booking = Booking.new(booking_params)
     @booking.boat = @boat
+    @booking.user = @user.find(boat.user_id)
+
     @booking.save
   end
 
