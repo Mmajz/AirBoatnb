@@ -27,21 +27,22 @@
  </div>
 
 
-<<%if @booking.present? %>
+<% if @bookings.present? %>
   <p> Your next booked boat trip will leave on the: <%= @next_booking.start_date %> </p>
-  <p>You will be going on the boat <%= @next_booking.boat_id  %></p>
+  <p>You will be going on the boat <%= @next_booking.boat.title  %></p>
+<% else %>
+  <p> You have no bookings </p>
+<%end%>
+
   <h3>Your Bookings</h3>
   <div class="row row-cols-1 g-4">
   <% @bookings.each do |booking| %>
     <div class="col card h-100">
       <p>Booking Number <%= booking.id %></p>
+      <P>You will be going on: <%= booking.boat.title %></P>
       <p>You will leave port on: <%= booking.start_date %></p>
-      <P>Boat ID: <%= booking.boat_id %></P>
       <p>You will make Port on <%= booking.end_date %></p>
   <% end %>
   </div>
   <% end %>
 </div>
-<% else %>
-  <p> You have no bookings </p>
-<%end%>
