@@ -1,0 +1,77 @@
+.banner {
+  background-size: cover;
+  background-position: center;
+  padding: 150px 0;
+}
+
+.banner h1 {
+  margin: 0;
+  color: white;
+  text-shadow: 1px 1px 3px rgba(0,0,0,0.2);
+  font-size: 32px;
+  font-weight: bold;
+}
+
+.banner p {
+  font-size: 20px;
+  color: white;
+  opacity: .7;
+  text-shadow: 1px 1px 3px rgba(0,0,0,0.2);
+}
+
+.banner-container{
+  position: relative;
+  background-image: linear-gradient( rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6) ),  url("https://i.otto.de/i/otto/d86ac0ae-05b4-56af-9b12-16747883662d?w=1200&h=799");
+  height: 70vh;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  color: #fff;
+
+  h1{
+    font-size: 40px;
+    font-weight: 700;
+  }
+
+
+  ul{
+    display: flex;
+    justify-content: space-between;
+  }
+
+  li{
+    padding: 5px 20px;
+    margin: 0 20px;
+    list-style-type: none;
+  }
+
+  .banner-nav-bar{
+    padding: 50px;
+    display: flex;
+    justify-content: space-between;
+  }
+
+  .fa-play{
+    margin-right: 10px;
+  }
+
+
+
+  .banner-info{
+    position: absolute;
+    margin-top: 10px;
+    padding: 50px;
+  }
+
+  .banner-title{
+    margin: 0;
+    font-size: 42px;
+    font-weight: 700;
+  }
+
+  .banner-subtitle{
+    font-weight: 300;
+    margin: 0 0 10px;
+    font-size: 28px;
+  }
+}
