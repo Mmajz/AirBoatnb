@@ -1,101 +1,60 @@
 <div class="banner-container">
   <div class="banner-nav-bar">
-    <div><h1><i class="fas fa-play"></i><a href="/boats" class="btn btn-primary">Browse Listings</a></h1></div>
+
   </div>
 
   <div class="banner-info">
     <div>
-      <p class="banner-title">WELCOME TO AIRBOATnB</p>
-      <p class="banner-subtitle">Home for the best boats!</p>
+      <h1 class="banner-title">WELCOME TO AIRBOATnB</h1>
+      <p class="banner-subtitle">Home to the best boats!</p>
       <div class="btn-infos">
-<!--         <p class="btn-add">Add to list</p> -->
+        <div>
+        </div>
+        <div class="input-group rounded">
+          <a href="/boats" class="btn btn-primary" title="Take me anywhere">
+            <i class="fa-solid fa-ship fa-beat"></i>
+          </a>
+          <input type="search" class="form-control rounded" placeholder="Search" aria-label="Search" aria-describedby="search-addon" />
+          <span class="input-group-text border-0" id="search-addon">
+            <i class="fas fa-search"></i>
+          </span>
+        </div>
       </div>
     </div>
   </div>
-</div>
-
-<footer class="bg-body-tertiary text-center">
-  <!-- Grid container -->
-  <div class="container p-4">
-    <!-- Section: Images -->
-    <section class="">
-      <div class="row">
-        <div class="col-lg-2 col-md-12 mb-4 mb-md-0">
-          <div data-mdb-ripple-init
-            class="bg-image hover-overlay shadow-1-strong rounded"
-            data-ripple-color="light"
-          >
-            <img src="https://mdbcdn.b-cdn.net/img/new/fluid/city/113.webp" class="w-100" />
-            <a href="#!">
-              <div class="mask" style="background-color: rgba(251, 251, 251, 0.2);"></div>
-            </a>
-          </div>
-        </div>
-        <div class="col-lg-2 col-md-12 mb-4 mb-md-0">
-          <div data-mdb-ripple-init
-            class="bg-image hover-overlay shadow-1-strong rounded"
-            data-ripple-color="light"
-          >
-            <img src="https://mdbcdn.b-cdn.net/img/new/fluid/city/111.webp" class="w-100" />
-            <a href="#!">
-              <div class="mask" style="background-color: rgba(251, 251, 251, 0.2);"></div>
-            </a>
-          </div>
-        </div>
-        <div class="col-lg-2 col-md-12 mb-4 mb-md-0">
-          <div data-mdb-ripple-init
-            class="bg-image hover-overlay shadow-1-strong rounded"
-            data-ripple-color="light"
-          >
-            <img src="https://mdbcdn.b-cdn.net/img/new/fluid/city/112.webp" class="w-100" />
-            <a href="#!">
-              <div class="mask" style="background-color: rgba(251, 251, 251, 0.2);"></div>
-            </a>
-          </div>
-        </div>
-        <div class="col-lg-2 col-md-12 mb-4 mb-md-0">
-          <div data-mdb-ripple-init
-            class="bg-image hover-overlay shadow-1-strong rounded"
-            data-ripple-color="light"
-          >
-            <img src="https://mdbcdn.b-cdn.net/img/new/fluid/city/114.webp" class="w-100" />
-            <a href="#!">
-              <div class="mask" style="background-color: rgba(251, 251, 251, 0.2);"></div>
-            </a>
-          </div>
-        </div>
-        <div class="col-lg-2 col-md-12 mb-4 mb-md-0">
-          <div data-mdb-ripple-init
-            class="bg-image hover-overlay shadow-1-strong rounded"
-            data-ripple-color="light"
-          >
-            <img src="https://mdbcdn.b-cdn.net/img/new/fluid/city/115.webp" class="w-100" />
-            <a href="#!">
-              <div class="mask" style="background-color: rgba(251, 251, 251, 0.2);"></div>
-            </a>
-          </div>
-        </div>
-        <div class="col-lg-2 col-md-12 mb-4 mb-md-0">
-          <div data-mdb-ripple-init
-            class="bg-image hover-overlay shadow-1-strong rounded"
-            data-ripple-color="light"
-          >
-            <img src="https://mdbcdn.b-cdn.net/img/new/fluid/city/116.webp" class="w-100" />
-            <a href="#!">
-              <div class="mask" style="background-color: rgba(251, 251, 251, 0.2);"></div>
-            </a>
-          </div>
-        </div>
-      </div>
-    </section>
-    <!-- Section: Images -->
   </div>
+
+  <footer class="bg-body-tertiary text-center">
+    <!-- Grid container -->
+    <div class="container p-4">
+  <% if @boats.present? %>
+    <!-- Displaying boat information -->
+    <div class="row row-cols-1 row-cols-md-2 g-4">
+      <% @boats.each do |boat| %>
+        <div class="col">
+          <div class="card h-100">
+            <div class="card-body">
+              <h5 class="card-title"><%= boat.title %></h5>
+              <p class="card-text">Description: <%= boat.description %></p>
+                <p>Price: <%= boat.price %></p>
+                <p>Location: <%= boat.location %></p>
+                <%= link_to "View Boat", "/boats/#{boat.id}" %>
+              <!-- Add more boat information as needed -->
+            </div>
+          </div>
+        </div>
+      <% end %>
+    </div>
+  <% else %>
+    <p>No boats available.</p>
+  <% end %>
+    </div>
   <!-- Grid container -->
 
   <!-- Copyright -->
   <div class="text-center p-3" style="background-color: rgba(0, 0, 0, 0.05);">
     © 2023 Copyright:
-    <a class="text-body" href="https://simplerent.com/">simplerent.com</a>
+    <a class="text-body" href="https://simplerent.com/">SimpleRent™</a>
   </div>
   <!-- Copyright -->
 </footer>

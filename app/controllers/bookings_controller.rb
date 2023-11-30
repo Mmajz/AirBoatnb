@@ -9,11 +9,18 @@ class BookingsController < ApplicationController
     @booking = Booking.new(booking_params)
     @booking.boat = @boat
 
-    @booking.save
+    @booking.user = current_user
+
+    if @booking.save
+      redirect_to dashboard_path
+    else
+      render :new, status: :unprocessable_entity
+    end
   end
 
-  def show
-    bookings = Booking.all
+  def index
+    @bookings = Booking.all
+    @booking = Booking.new
   end
 
 

@@ -1,9 +1,40 @@
-<h1>Welcome, <%= @user.first_name %></h1>
-<p>Email: <%= @user.email %></p>
-<p>Your User-ID is:<%= @user.id %> </p>
+<div class="container mt-4">
+  <div class="row">
+    <div class="col-md-6 offset-md-3">
+      <h1 class="text-center mb-4">Welcome, <%= @user.first_name %></h1>
 
+      <div class="text-center mb-3">
+        <%= link_to "Add a new Boat", "/boats/new", class: "btn btn-primary btn-lg mr-2" %>
+        <%= link_to "View My Bookings", "/bookings", class: "btn btn-success btn-lg" %>
+      </div>
 
+      <div class="text-center">
+        <%= link_to "Edit Profile", "/users/edit", class: "btn btn-secondary btn-sm" %>
+      </div>
+    </div>
+  </div>
+</div>
 <p><%= link_to "Add a new Boat", "/boats/new" %> </p>
 
 
 <p><%= link_to "Update your account", "/users/edit" %></p>
+
+
+
+
+<p> Your next booked boat trip will leave on the: <%= @next_booking.start_date %> </p>
+<p>You will be going on the boat <%= @next_booking.boat_id  %></p>
+
+
+
+<h3>Your Bookings</h3>
+<div class="row row-cols-1 g-4">
+<%= @bookings.each do |booking| %>
+  <div class="col card h-100">
+    <p>Booking Number <%= booking.id %></p>
+    <p>You will leave port on: <%= booking.start_date %></p>
+    <P>Boat ID: <%= booking.boat_id %></P>
+    <p>You will make Port on <%= booking.end_date %></p>
+    <% end %>
+  </div>
+</div>
