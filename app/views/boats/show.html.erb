@@ -1,5 +1,9 @@
 
-<%= cl_image_tag @boat.photo.key, height: 200, width: 400, crop: :fill, class: 'img-border' %>
+<% if @boat.photo.present? && @boat.photo.key.present? %>
+    <%= cl_image_tag @boat.photo.key, height: 200, width: 400, crop: :fill, class: 'img-border' %>
+<% else %>
+    <img src="/images/placeholder.jpg" class="img-border" height="200" width="400">
+<% end %>
 <h1><%= @boat.title %></h1>
 
 <%= link_to 'Back to Boats', boats_path %>
