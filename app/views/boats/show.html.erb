@@ -1,9 +1,10 @@
-
-<% if @boat.photo.present? && @boat.photo.key.present? %>
+<div class = "container text-center">
+  <% if @boat.photo.present? && @boat.photo.key.present? %>
     <%= cl_image_tag @boat.photo.key, height: 200, width: 400, crop: :fill, class: 'img-border' %>
-<% else %>
+  <% else %>
     <img src="/images/placeholder.jpg" class="img-border" height="200" width="400">
-<% end %>
-<h1><%= @boat.title %></h1>
-<%= link_to 'Back to Boats', boats_path %>
-<%= link_to 'Make a booking', new_boat_booking_path(@boat) %>
+  <% end %>
+  <h1><%= @boat.title %></h1>
+  <i class="fa-solid fa-backward-step fa-4x"></i><%= link_to 'Back to Boats', boats_path %>
+  <%= link_to 'Make a booking', new_boat_booking_path(@boat) %>
+</div>
