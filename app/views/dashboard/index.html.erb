@@ -28,6 +28,9 @@
       <%= f.input :price %>
       <%= f.input :photo, as: :file %>
       <%= f.submit class: 'btn-submit-movie mt-3'%>
+  </div>
+ </div>
+
 
 
 
@@ -38,7 +41,7 @@
 
 <h3>Your Bookings</h3>
 <div class="row row-cols-1 g-4">
-<%= @bookings.each do |booking| %>
+<% @bookings.each do |booking| %>
   <div class="col card h-100">
     <p>Booking Number <%= booking.id %></p>
     <p>You will leave port on: <%= booking.start_date %></p>
@@ -46,4 +49,5 @@
     <p>You will make Port on <%= booking.end_date %></p>
     <% end %>
   </div>
+  <% end %>
 </div>
