@@ -23,18 +23,15 @@
       <%= f.input :price %>
       <%= f.input :photo, as: :file %>
       <%= f.submit class: 'btn-submit-movie mt-3'%>
+    <% end %>
   </div>
  </div>
 
 
-<% if @bookings.present? %>
+<% unless @bookings.empty? %>
   <p> Your next booked boat trip will leave on the: <%= @next_booking.start_date %> </p>
   <p>You will be going on the boat <%= @next_booking.boat.title  %></p>
-<% else %>
-  <p> You have no bookings </p>
-<%end%>
-
-  <h3>Your Bookings</h3>
+    <h3>Your Bookings</h3>
   <div class="row row-cols-1 g-4">
   <% @bookings.each do |booking| %>
     <div class="col card h-100">
@@ -42,7 +39,11 @@
       <P>You will be going on: <%= booking.boat.title %></P>
       <p>You will leave port on: <%= booking.start_date %></p>
       <p>You will make Port on <%= booking.end_date %></p>
+      </div>
   <% end %>
   </div>
-  <% end %>
-</div>
+  <% else %>
+    <p> You have no bookings </p>
+<% end %>
+
+
