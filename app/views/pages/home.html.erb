@@ -38,6 +38,7 @@
               <p class="card-text">Description: <%= boat.description %></p>
                 <p>Price: <%= boat.price %></p>
                 <p>Location: <%= boat.location %></p>
+                <%= link_to "View Boat", "/boats/#{boat.id}" %>
               <!-- Add more boat information as needed -->
             </div>
           </div>

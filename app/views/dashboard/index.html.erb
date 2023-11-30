@@ -28,9 +28,13 @@
 
 
 <h3>Your Bookings</h3>
+<div class="row row-cols-1 g-4">
 <%= @bookings.each do |booking| %>
-<p>Booking Number <%= booking.id %></p>
-<p>You will leave port on: <%= booking.start_date %></p>
-<P>Boat ID: <%= booking.boat_id %></P>
-<p>You will make Port on <%= booking.end_date %></p>
-<% end %>
+  <div class="col card h-100">
+    <p>Booking Number <%= booking.id %></p>
+    <p>You will leave port on: <%= booking.start_date %></p>
+    <P>Boat ID: <%= booking.boat_id %></P>
+    <p>You will make Port on <%= booking.end_date %></p>
+    <% end %>
+  </div>
+</div>
