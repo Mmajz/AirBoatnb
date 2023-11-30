@@ -28,7 +28,7 @@
  </div>
 
 
-<% unless @bookings.empty? %>
+<% if @next_booking %>
   <p> Your next booked boat trip will leave on the: <%= @next_booking.start_date %> </p>
   <p>You will be going on the boat <%= @next_booking.boat.title  %></p>
     <h3>Your Bookings</h3>
@@ -45,5 +45,3 @@
   <% else %>
     <p> You have no bookings </p>
 <% end %>
-
-
