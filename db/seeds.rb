@@ -9,6 +9,7 @@
 #   end
 Boat.destroy_all
 User.destroy_all
+
 users = []
 10.times do |n|
   users << User.create!(

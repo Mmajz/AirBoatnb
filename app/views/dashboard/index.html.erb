@@ -1,7 +1,7 @@
 <head>
   <%= stylesheet_link_tag 'wave_style' %>
 </head>
-<div id="background"> 
+<div id="background">
   <div class="wave-01"></div>
   <div class="wave-02"></div>
   <div class="wave-03"></div>
@@ -13,7 +13,7 @@
     <div class="welcome">
       <h1 class="text-center mb-4">Welcome, <%= @user.first_name %></h1>
     </div>
-      
+
       <div class="position-absolute top-0 end-0">
         <%= link_to "Edit Profile", "/users/edit", class: "btn btn-secondary btn-sm me-2" %>
         <%= link_to "Add a new Boat", "/boats/new", class: "btn btn-secondary btn-sm" %>
@@ -83,40 +83,28 @@
  </div>
 
 
-<% if @next_booking %>
-  <p> Your next booked boat trip will leave on the: <%= @next_booking.start_date %> </p>
-  <p>You will be going on the boat <%= @next_booking.boat.title  %></p>
-    <h3>Your Bookings</h3>
-  <div class="row row-cols-1 g-4">
-  <% @bookings.each do |booking| %>
-    <div class="col card h-100">
-      <p>Booking Number <%= booking.id %></p>
-      <P>You will be going on: <%= booking.boat.title %></P>
-      <p>You will leave port on: <%= booking.start_date %></p>
-      <p>You will make Port on <%= booking.end_date %></p>
-      </div>
-  <% end %>
-  </div>
-  <% else %>
-    <p> You have no bookings </p>
-<% end %>
 
-<h2> Your Boats: </h2>
-<div class="show_boat">
-  <div>
-    <ul>
-      <% @boats.each do |boat| %>
-        <li>
-        <h3><%= boat.title %></h3>
-        <p> Description:<%= boat.description %></p>
-        <% if boat.photo.attached? %>
-            <%= cl_image_tag(boat.photo.key, :width => 300, :height => 300, :crop => :fill, :radius => 20) %>
-        <% else %>
-            <%= image_tag('Modern_luxury_cruise_ship_cine (1)', :width => 300, :height => 300, :crop => :fill, :radius => 20) %>
-        <% end %>
-      <% end  %>
-      </li>
-    </ul>
-  </div>
-
-</div>
+  <div class="mt-4">
+          <div class="dropdown">
+            <button class="btn btn-primary dropdown-toggle" type="button" id="bookingsDropdown" data-bs-toggle="dropdown" aria-expanded="false">
+              Your Boats
+            </button>
+            <ul class="dropdown-menu" aria-labelledby="bookingsDropdown">
+              <% @boats.each do |boat| %>
+                <li>
+                  <div class="card">
+                    <div class="card-body">
+                      <p>Boat Title: <%= boat.title %></p>
+                      <p>Description <%= boat.description %></p>
+                      <% if boat.photo.attached? %>
+                          <%= cl_image_tag(boat.photo.key, :width => 300, :height => 300, :crop => :fill, :radius => 20) %>
+                      <% else %>
+                          <%= image_tag('Modern_luxury_cruise_ship_cine (1)', :width => 300, :height => 300, :crop => :fill, :radius => 20) %>
+                      <% end %>
+                    </div>
+                  </div>
+                </li>
+              <% end %>
+            </ul>
+          </div>
+        </div>
