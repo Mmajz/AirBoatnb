@@ -20,6 +20,7 @@
     <%= simple_form_for (@boat) do |f| %>
       <%= f.input :title %>
       <%= f.input :location %>
+      <%= f.input :description, label: 'Description' %>
       <%= f.input :price %>
       <%= f.input :photo, as: :file %>
       <%= f.submit class: 'btn-submit-movie mt-3'%>
