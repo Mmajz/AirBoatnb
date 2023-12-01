@@ -14,6 +14,7 @@ User.destroy_all
 
 
 
+
 eke = User.create!(
   email: "eke@eke.com",
   password: "password",
@@ -137,3 +138,4 @@ boat8 = Boat.create!(
 file = File.open(File.join(__dir__, "../app/assets/images/Couple-Boats.jpeg"))
 boat8.photo.attach(io: file, filename: "bermuda.png", content_type: "image/png")
 boat8.save
+
