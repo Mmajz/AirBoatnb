@@ -22,33 +22,43 @@
       </div>
     </div>
   </div>
+</div>
+
+<footer class="bg-body-tertiary text-center">
+  <!-- Grid container -->
+  <div class = "image", class="container p-4">
+    <% if @boats.present? %>
+      <!-- Displaying boat information -->
+      <div class="row row-cols-1 row-cols-md-2 g-4">
+        <% @boats.each do |boat| %>
+          <%= link_to "/boats/#{boat.id}", class: "col-md-6 text-decoration-none" do %>
+            <div class="card mh-100">
+              <div class="row g-0">
+                <div class="col-md-6">
+                  <% if boat.photo.attached? %>
+                    <%= cl_image_tag boat.photo.key, class: "card-image" %>
+                  <% end %>
+                </div>
+                <div class="col-md-6">
+                  <div class="card-body">
+                    <h5 class="card-title"><%= boat.title %></h5>
+                    <p class="card-text"><i class="fa-solid fa-anchor-circle-xmark"></i>: <%= boat.description %></p>
+                    <p><i class="fa-solid fa-tag"></i>: $<%= boat.price %></p>
+                    <p><i class="fa-solid fa-location-dot"></i>: <%= boat.location %></p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          <% end %>
+        <% end %>
+      </div>
+
+
+    <% else %>
+      <p>No boats available.</p>
+    <% end %>
   </div>
 
-  <footer class="bg-body-tertiary text-center">
-    <!-- Grid container -->
-    <div class="container p-4">
-  <% if @boats.present? %>
-    <!-- Displaying boat information -->
-    <div class="row row-cols-1 row-cols-md-2 g-4">
-      <% @boats.each do |boat| %>
-        <div class="col">
-          <div class="card h-100">
-            <div class="card-body">
-              <h5 class="card-title"><%= boat.title %></h5>
-              <p class="card-text">Description: <%= boat.description %></p>
-                <p>Price: <%= boat.price %></p>
-                <p>Location: <%= boat.location %></p>
-                <%= link_to "View Boat", "/boats/#{boat.id}" %>
-              <!-- Add more boat information as needed -->
-            </div>
-          </div>
-        </div>
-      <% end %>
-    </div>
-  <% else %>
-    <p>No boats available.</p>
-  <% end %>
-    </div>
   <!-- Grid container -->
 
   <!-- Copyright -->
