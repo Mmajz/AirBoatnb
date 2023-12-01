@@ -48,4 +48,21 @@
 
 
 <h2> Your Boats: </h2>
-<%= @boats %>
+<div class="show_boat">
+  <div>
+    <ul>
+      <% @boats.each do |boat| %>
+        <li>
+        <h3><%= boat.title %></h3>
+        <p> Description:<%= boat.description %></p>
+        <% if boat.photo.attached? %>
+            <%= cl_image_tag(boat.photo.key, :width => 300, :height => 300, :crop => :fill, :radius => 20) %>
+        <% else %>
+            <%= image_tag('Modern_luxury_cruise_ship_cine (1)', :width => 300, :height => 300, :crop => :fill, :radius => 20) %>
+        <% end %>
+      <% end  %>
+      </li>
+    </ul>
+  </div>
+
+</div>
