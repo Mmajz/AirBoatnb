@@ -46,16 +46,34 @@
         <%= image_tag("logo.png", class: "img-border", height: 200, width: 400) %>
       <% end %>
     </div>
-    <div class></div>
+    <div class = "info">
+      <h5><%= @boat.title %></h5>
+      <div class = "rating">
+        <i class="fa-regular fa-star"></i>
+        <i class="fa-regular fa-star"></i>
+        <i class="fa-regular fa-star"></i>
+        <i class="fa-regular fa-star"></i>
+        <i class="fa-regular fa-star"></i>
+        <small>5.0 (100 reviews)</small>
+      </div>
+
+      <div class = "price">
+        <h6>€ <%= @boat.price %></h6>
+      </div>
+
+      <div class = "description">
+        <p><%= @boat.description %></p>
+      </div>
+
+      <div class = "owner">
+        <i class = "fa-regular fa-user"></i>  <%= @boat.user.first_name %>
+      </div>
+
+      <div class = "buttons">
+        <%= link_to "Book Now", new_boat_booking_path(@boat), class: "btn btn-primary book-now-button"%>
+        <%= link_to "Back to boats", boats_path, class: "btn btn-primary btn-back" %>
+      </div>
+    </div>
   </div>
 
 </div>
-
-<% if @boat.photo.present? && @boat.photo.key.present? %>
-    <%= cl_image_tag @boat.photo.key, height: 600, width: 600, crop: :fill, class: 'img-border' %>
-<% else %>
-    <img src="/images/placeholder.jpg" class="img-border" height="200" width="400">
-<% end %>
-<h1><%= @boat.title %></h1>
-<%= link_to 'Back to Boats', boats_path %>
-<%= link_to 'Make a booking', new_boat_booking_path(@boat) %>
