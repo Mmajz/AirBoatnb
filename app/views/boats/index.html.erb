@@ -24,6 +24,11 @@
           <div class="card h-100">
             <div class="card-body">
               <h5 class="card-title"><%= boat.title %></h5>
+              <% if boat.photo.attached? %>
+                  <%= cl_image_tag(boat.photo.key) %>
+              <% else %>
+                  <%= image_tag('Modern_luxury_cruise_ship_cine (1)') %>
+              <% end %>
               <p class="card-text">Description: <%= boat.description %></p>
                 <p>Price: <%= boat.price %></p>
                 <p>Location: <%= boat.location %></p>
@@ -34,4 +39,3 @@
         </div>
       <% end %>
     </div>
-
