@@ -75,3 +75,21 @@
     font-size: 28px;
   }
 }
+
+.card-image {
+  width: -webkit-fill-available;
+  height: -webkit-fill-available;
+  object-fit: cover;
+}
+
+.card-text {
+  text-align: -webkit-match-parent;
+}
+
+.card-title {
+  font-weight: bold;
+}
+
+.image{
+  padding: 18px
+}

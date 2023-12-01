@@ -50,3 +50,12 @@
   </div>
 
 </div>
+
+<% if @boat.photo.present? && @boat.photo.key.present? %>
+    <%= cl_image_tag @boat.photo.key, height: 600, width: 600, crop: :fill, class: 'img-border' %>
+<% else %>
+    <img src="/images/placeholder.jpg" class="img-border" height="200" width="400">
+<% end %>
+<h1><%= @boat.title %></h1>
+<%= link_to 'Back to Boats', boats_path %>
+<%= link_to 'Make a booking', new_boat_booking_path(@boat) %>
