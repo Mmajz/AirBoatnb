@@ -1,4 +1,16 @@
 <%= link_to boat_path(boat), style: "text-decoration:none" do %>
-  <h2><%= boat.title %></h2>
-  <p><%= boat.location %></p>
+<div class = "d-flex">
+  <i class="fa-solid fa-ship p-1"></i><h6 class = "px-1"><%= boat.title %></h6>
+</div>
+<div class = "d-flex">
+  <i class="fa-solid fa-location-dot p-1"></i><h6 class = "px-1"><%= boat.location %></h6>
+</div>
+<div class = "d-flex">
+  <i class="fa-solid fa-money-bill p-1"></i><h6 class = "px-1"><%= boat.price %></h6>
+</div>
+
+<div class = "d-flex">
+ <i class="fa-solid fa-user p-1"></i><h6 class = "px-1"><%= boat.user.first_name %></h6>
+</div>
+
 <% end %>

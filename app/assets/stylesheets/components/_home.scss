@@ -83,7 +83,7 @@
 }
 
 .card-text {
-  text-align: justify;
+  text-align: -webkit-match-parent;
 }
 
 .card-title {
@@ -93,4 +93,3 @@
 .image{
   padding: 18px
 }
-
