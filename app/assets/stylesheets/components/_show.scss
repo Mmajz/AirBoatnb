@@ -1,0 +1,30 @@
+.boat-container {
+  padding: 5rem;
+}
+
+.top-bar {
+  display: flex;
+  background-color: #0E6EFB;
+  color: white;
+  justify-content: center;
+}
+
+.top-bar-2 {
+  display: flex;
+  justify-content: space-between;
+  margin: 1rem;
+}
+
+.img-container {
+  background-color: lightgrey;
+  border-radius: 3px;
+  overflow: hidden;
+  width: 700px;
+  height: 600px;
+  padding: 0.5rem;
+}
+
+.img {
+  width: 100%;
+  height: 100%;
+}

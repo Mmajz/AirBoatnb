@@ -67,3 +67,56 @@
         </div>
       </div>
     </div>
+
+
+<div  class="mt-5">
+  <div data-toggle-target="togglableElement", class="d-none">
+    <%= simple_form_for (@boat) do |f| %>
+      <%= f.input :title %>
+      <%= f.input :location %>
+      <%= f.input :description, label: 'Description' %>
+      <%= f.input :price %>
+      <%= f.input :photo, as: :file %>
+      <%= f.submit class: 'btn-submit-movie mt-3'%>
+    <% end %>
+  </div>
+ </div>
+
+
+<% if @next_booking %>
+  <p> Your next booked boat trip will leave on the: <%= @next_booking.start_date %> </p>
+  <p>You will be going on the boat <%= @next_booking.boat.title  %></p>
+    <h3>Your Bookings</h3>
+  <div class="row row-cols-1 g-4">
+  <% @bookings.each do |booking| %>
+    <div class="col card h-100">
+      <p>Booking Number <%= booking.id %></p>
+      <P>You will be going on: <%= booking.boat.title %></P>
+      <p>You will leave port on: <%= booking.start_date %></p>
+      <p>You will make Port on <%= booking.end_date %></p>
+      </div>
+  <% end %>
+  </div>
+  <% else %>
+    <p> You have no bookings </p>
+<% end %>
+
+<h2> Your Boats: </h2>
+<div class="show_boat">
+  <div>
+    <ul>
+      <% @boats.each do |boat| %>
+        <li>
+        <h3><%= boat.title %></h3>
+        <p> Description:<%= boat.description %></p>
+        <% if boat.photo.attached? %>
+            <%= cl_image_tag(boat.photo.key, :width => 300, :height => 300, :crop => :fill, :radius => 20) %>
+        <% else %>
+            <%= image_tag('Modern_luxury_cruise_ship_cine (1)', :width => 300, :height => 300, :crop => :fill, :radius => 20) %>
+        <% end %>
+      <% end  %>
+      </li>
+    </ul>
+  </div>
+
+</div>
