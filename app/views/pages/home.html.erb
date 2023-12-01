@@ -32,15 +32,15 @@
       <div class="row row-cols-1 row-cols-md-2 g-4">
         <% @boats.each do |boat| %>
           <%= link_to "/boats/#{boat.id}", class: "col-md-6 text-decoration-none" do %>
-            <div class="card mh-100">
+            <div class="card mh-100 w=300">
               <div class="row g-0">
                 <div class="col-md-6">
                   <% if boat.photo.attached? %>
-                    <%= cl_image_tag boat.photo.key, class: "card-image" %>
+                    <%= cl_image_tag(boat.photo.key, :width => 460, :height => 250, crop: :fill) %>
                   <% end %>
                 </div>
                 <div class="col-md-6">
-                  <div class="card-body">
+                  <div class="card-body text-start px-3">
                     <h5 class="card-title"><%= boat.title %></h5>
                     <p class="card-text"><i class="fa-solid fa-anchor-circle-xmark"></i>: <%= boat.description %></p>
                     <p><i class="fa-solid fa-tag"></i>: $<%= boat.price %></p>
